@@ -12,7 +12,7 @@ public class App {
 
         // fazer uma conexão HTTP e buscar os top 250 filmes
         // String url = "https://imdb-api.com/en/API/Top250Movies/k_0ojt0yvm";
-        String url = "https://raw.githubusercontent.com/alura-cursos/imersao-java/api/TopMovies.json";
+        String url = "https://api.mocki.io/v2/549a5d8b"; // usando endereço alternativo
         URI endereco = URI.create(url);
         var client = HttpClient.newHttpClient();
         var request = HttpRequest.newBuilder(endereco).GET().build();
@@ -23,8 +23,8 @@ public class App {
         var parser = new JsonParser();
         List<Map<String, String>> listaDeFilmes = parser.parse(body);
 
-        // exibir e manipular os dados 
-        for (Map<String,String> filme : listaDeFilmes) {
+        // exibir e manipular os dados
+        for (Map<String, String> filme : listaDeFilmes) {
             System.out.println(filme.get("title"));
             System.out.println(filme.get("image"));
             System.out.println(filme.get("imDbRating"));
